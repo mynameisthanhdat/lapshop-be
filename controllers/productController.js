@@ -131,3 +131,5 @@ exports.deleteProductById = async (req, res) => {
   await Product.findByIdAndDelete(req.params.productId);
   res.status(200).json({ status: 200, message: "Xóa sản phẩm thành công." });
 };
+
+// add something
