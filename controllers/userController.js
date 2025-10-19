@@ -104,3 +104,5 @@ exports.deleteUserById = async (req, res) => {
   await User.findByIdAndDelete(req.params.userId);
   res.status(200).json({ status: 200, message: 'Xóa user thành công.' });
 };
+
+// add something
