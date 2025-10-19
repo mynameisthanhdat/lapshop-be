@@ -79,7 +79,20 @@ exports.createOrder = async (req, res) => {
 
 // READ ALL (Admin)
 exports.getOrders = async (req, res) => {
+  console.log('hihi');
+  
   const orders = await Order.find();
+  console.log('hihi: ', orders);
+  res.status(200).json({
+    status: 200,
+    data: orders,
+  });
+};
+
+// GET LIST ORDER BY USERID
+exports.getOrdersByUserId = async (req, res) => {
+  const userId = req.params.userId;
+  const orders = await Order.find({ userId: userId });
   res.status(200).json({
     status: 200,
     data: orders,
