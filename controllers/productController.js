@@ -16,7 +16,8 @@ exports.createProduct = async (req, res) => {
 
 // READ ALL
 exports.getAllProducts = async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find().sort({ updatedAt: -1 });
+  products.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
   res.status(200).json({
     status: 200,
     data: products,
